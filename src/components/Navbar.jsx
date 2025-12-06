@@ -66,7 +66,7 @@ export default function Navbar() {
               Inicio
             </Link>
             <Link to="/tienda" onClick={() => setMobileMenuOpen(false)} className={linkClasses('/tienda')}>
-              Tienda
+              Catálogo
             </Link>
             <Link to="/contacto" onClick={() => setMobileMenuOpen(false)} className={linkClasses('/contacto')}>
               Contacto
