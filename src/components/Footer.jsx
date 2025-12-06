@@ -78,7 +78,7 @@ export default function Footer() {
             </li>
             <li>
               <Link to="/tienda" className="hover:text-wayna-green transition">
-                Tienda
+                Catálogo
               </Link>
             </li>
             <li className="text-gray-500 cursor-not-allowed">

@@ -22,17 +22,18 @@ export default function Hero() {
             to="/tienda"
             className="bg-wayna-green text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-green-600 transition shadow-xl inline-block text-center"
           >
-            Ir a la Tienda
+            Ver Productos
           </Link>
 
           <a
             href="https://wa.me/593979116621"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-2 border-white text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-white hover:text-gray-900 transition inline-block text-center"
+            className="border-2 border-[#F58220] text-white px-12 py-5 rounded-full text-lg font-bold hover:bg-[#F58220] hover:text-gray-900 transition inline-block text-center"
           >
             Contáctanos
           </a>
+
 
         </div>
       </div>

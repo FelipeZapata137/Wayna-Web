@@ -41,7 +41,7 @@ export default function Navbar() {
 
         <nav className="hidden lg:flex items-center gap-12 text-lg font-medium">
           <Link to="/" className={linkClasses('/')}>Inicio</Link>
-          <Link to="/tienda" className={linkClasses('/tienda')}>Tienda</Link>
+          <Link to="/tienda" className={linkClasses('/tienda')}>Catálogo</Link>
           <Link to="/contacto" className={linkClasses('/contacto')}>Contacto</Link>
         </nav>
 

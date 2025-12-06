@@ -56,7 +56,7 @@ export default function Shop() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 data-aos="fade-up" className="text-5xl md:text-6xl font-black mb-4">
-            Nuestra Tienda
+            Nuestros Productos
           </h1>
           <p data-aos="fade-up" data-aos-delay="200" className="text-xl text-gray-600">
             Explora nuestro catálogo de cajas y soluciones de empaque personalizadas
