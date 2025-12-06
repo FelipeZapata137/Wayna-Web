@@ -26,7 +26,7 @@ export default function Hero() {
           </Link>
 
           <a
-            href="https://wa.me/593979116621"
+            href="https://wa.me/593979116621?text=%C2%A1Hola%20Wayna!%20Vengo%20desde%20la%20web%20y%20quiero%20hacer%20un%20pedido%20o%20cotizaci%C3%B3n"
             target="_blank"
             rel="noopener noreferrer"
             className="border-2 border-white text-white px-12 py-5 rounded-full text-lg font-bold hover:border-[#F58220] hover:bg-[#F58220] hover:text-white transition inline-block text-center"
