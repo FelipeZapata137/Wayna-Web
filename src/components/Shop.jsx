@@ -5,7 +5,7 @@ const products = [
     desc: "Caja de cartón corrugado ideal para envíos pequeños.",
     dimensions: "20 x 15 x 10 cm",
     price: 1.50,
-    image: "/src/assets/arte.png",
+    image: "/assets/arte.png",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const products = [
     desc: "Caja ecológica de kraft para productos grandes.",
     dimensions: "40 x 30 x 25 cm",
     price: 3.50,
-    image: "/src/assets/arte.png",
+    image: "/assets/arte.png",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const products = [
     desc: "Caja especializada para delivery de alimentos con interior resistente a grasa.",
     dimensions: "35 x 25 x 12 cm",
     price: 2.00,
-    image: "/src/assets/arte.png",
+    image: "/assets/arte.png",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const products = [
     desc: "Caja elegante con acabado mate para productos premium y regalos.",
     dimensions: "30 x 30 x 30 cm",
     price: 4.50,
-    image: "/src/assets/arte.png",
+    image: "/assets/arte.png",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const products = [
     desc: "Caja con ventana transparente ideal para pasteles y postres.",
     dimensions: "25 x 25 x 12 cm",
     price: 2.50,
-    image: "/src/assets/arte.png",
+    image: "/assets/arte.png",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const products = [
     desc: "Caja versátil de tamaño mediano.",
     dimensions: "30 x 20 x 15 cm",
     price: 1.80,
-    image: "/src/assets/arte.png",
+    image: "/assets/arte.png",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const products = [
     desc: "Caja grande y resistente para envíos pesados.",
     dimensions: "60 x 40 x 40 cm",
     price: 5.00,
-    image: "/src/assets/arte.png",
+    image: "/assets/arte.png",
   },
 ]
 

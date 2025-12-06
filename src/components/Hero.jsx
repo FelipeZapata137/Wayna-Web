@@ -5,7 +5,7 @@ export default function Hero() {
     <section data-aos="fade-down" className="relative h-screen flex items-center justify-center overflow-hidden mt-16 lg:mt-0">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/src/assets/White_WAYNA_Food_Boxes.png')" }}
+        style={{ backgroundImage: "url('/assets/White_WAYNA_Food_Boxes.png')" }}
       />
       <div className="absolute inset-0 bg-black/40" />
 

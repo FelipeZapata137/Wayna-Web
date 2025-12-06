@@ -23,7 +23,7 @@ export default function AboutSection() {
 
         <div data-aos="fade-left" data-aos-delay="200" className="rounded-3xl overflow-hidden shadow-2xl">
           <img 
-            src="/src/assets/arte.png" 
+            src="/assets/arte.png" 
             alt="Wayna visión" 
             className="w-full h-full object-cover"
           />
