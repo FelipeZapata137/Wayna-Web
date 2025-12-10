@@ -33,7 +33,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-wayna-green rounded-full flex items-center justify-center text-white font-black text-xl rounded-full shadow-lg">
+          <div className="w-10 h-10 bg-wayna-green rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg">
             W
           </div>
           <span className="text-2xl font-black text-gray-900">WAYNA</span>
