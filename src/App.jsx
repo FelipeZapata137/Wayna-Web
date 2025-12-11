@@ -20,7 +20,7 @@ function Home() {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white relative">
+      <div className="bg-white relative">
         <Navbar />
         
         <Routes>
