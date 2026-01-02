@@ -19,7 +19,7 @@ export const products = [
     dimensions: "17.5 x 8 x 16 cm",
     price: 12.50,
     units: 50,
-    image: "/assets/arte.png",
+    image: "/assets/conoPortavaso.png",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const products = [
     dimensions: "7 x 7 x 15 cm",
     price: 7.00,
     units: 100,
-    image: "/assets/arte.png",
+    image: "/assets/conoPequeño.png",
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const products = [
     dimensions: "7 x 7 x 22 cm",
     price: 8.00,
     units: 100,
-    image: "/assets/arte.png",
+    image: "/assets/conoGrande.png",
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ export const products = [
     dimensions: "9 x 9 x 33 cm",
     price: 10.00,
     units: 100,
-    image: "/assets/arte.png",
+    image: "/assets/conoGigante.png",
   },
   {
     id: 15,
@@ -59,7 +59,7 @@ export const products = [
     dimensions: "7.5 x 2.5 x 15.5 cm",
     price: 8.50,
     units: 100,
-    image: "/assets/arte.png",
+    image: "/assets/portaPapasGrande.png",
   },
   {
     id: 16,
@@ -69,7 +69,7 @@ export const products = [
     dimensions: "6 x 3 x 11 cm",
     price: 6.50,
     units: 100,
-    image: "/assets/arte.png",
+    image: "/assets/portaPapasPequeño.png",
   },
   {
     id: 17,
@@ -79,7 +79,7 @@ export const products = [
     dimensions: "18 x 6 x 4 cm",
     price: 5.50,
     units: 100,
-    image: "/assets/arte.png",
+    image: "/assets/portaHotDog.png",
   },
   {
     id: 18,
@@ -89,7 +89,7 @@ export const products = [
     dimensions: "9 x 5 x 9 cm",
     price: 5.50,
     units: 100,
-    image: "/assets/arte.png",
+    image: "/assets/portaHamburguesa.png",
   },
   {
     id: 19,
@@ -99,7 +99,7 @@ export const products = [
     dimensions: "18 x 8 x 17 cm",
     price: 5.50,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/portaVasos.png",
   },
 
   // Categoria: Recipientes Contenedores
@@ -111,7 +111,7 @@ export const products = [
     dimensions: "19 x 12 x 8 cm",
     price: 5.75,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/Contenedor01.png",
   },
   {
     id: 13,
@@ -121,7 +121,7 @@ export const products = [
     dimensions: "17.5 x 15 x 8.5 cm",
     price: 6.00,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/Contenedor02.png",
   },
   {
     id: 14,
@@ -131,19 +131,19 @@ export const products = [
     dimensions: "9 x 7 x 10.5 cm",
     price: 6.50,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/Contenedor03.png",
   },
 
   // Categoria: Canoas y Bandejas
   {
     id: 8,
-    name: "Canoas 1",
+    name: "Canoa 1",
     category: "canoas-bandejas",
     desc: "Caja tipo canoa para alimentos y snacks.",
     dimensions: "11.5 x 7.5 x 5.2 cm",
     price: 5.00,
     units: 100,
-    image: "/assets/arte.png",
+    image: "/assets/Canoa01.png",
   },
   {
     id: 9,
@@ -153,7 +153,7 @@ export const products = [
     dimensions: "15 x 14 x 4 cm",
     price: 5.00,
     units: 50,
-    image: "/assets/arte.png",
+    image: "/assets/Canoa02.png",
   },
   {
     id: 10,
@@ -163,7 +163,7 @@ export const products = [
     dimensions: "16.5 x 9 x 5 cm",
     price: 5.50,
     units: 50,
-    image: "/assets/arte.png",
+    image: "/assets/Canoa03.png",
   },
   {
     id: 11,
@@ -173,7 +173,7 @@ export const products = [
     dimensions: "20 x 20 x 4.5 cm",
     price: 5.50,
     units: 50,
-    image: "/assets/arte.png",
+    image: "/assets/Canoa04.png",
   },
   {
     id: 20,
@@ -183,7 +183,7 @@ export const products = [
     dimensions: "27 x 18 x 8 cm",
     price: 6.00,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/BandejaBocaditosAlta.png",
   },
   {
     id: 21,
@@ -193,7 +193,7 @@ export const products = [
     dimensions: "27.5 x 18.5 x 3 cm",
     price: 4.50,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/BandejaBocaditosBaja.png",
   },
 
   // Categoria: Delivery Box
