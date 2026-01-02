@@ -205,7 +205,7 @@ export const products = [
     dimensions: "20 x 20 x 7 cm",
     price: 8.00,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/BigBox.png",
   },
   {
     id: 7,
@@ -215,7 +215,7 @@ export const products = [
     dimensions: "25 x 25 x 7.5 cm",
     price: 11.00,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/MegaBigBox.png",
   },
   {
     id: 22,
@@ -225,7 +225,7 @@ export const products = [
     dimensions: "20 x 12 x 13 cm",
     price: 15.00,
     units: 50,
-    image: "/assets/arte.png",
+    image: "/assets/Lonchera.png",
   },
   {
     id: 23,
@@ -235,7 +235,7 @@ export const products = [
     dimensions: "12 x 12 x 8 cm",
     price: 7.00,
     units: 50,
-    image: "/assets/arte.png",
+    image: "/assets/cajitaCuadrada.png",
   },
   {
     id: 24,
@@ -245,7 +245,7 @@ export const products = [
     dimensions: "14 x 9.5 x 7 cm",
     price: 7.00,
     units: 50,
-    image: "/assets/arte.png",
+    image: "/assets/cajitaRectangular.png",
   },
   {
     id: 25,
@@ -255,7 +255,7 @@ export const products = [
     dimensions: "27 x 18 x 8 cm",
     price: 8.50,
     units: 25,
-    image: "/assets/arte.png",
+    image: "/assets/cajaCombos.png",
   },
 
   // Categoria: Dulces y Bocaditos
