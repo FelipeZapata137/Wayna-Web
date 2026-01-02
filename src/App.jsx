@@ -4,7 +4,7 @@ import Hero from './components/Hero'
 import AboutSection from './components/AboutSection'
 import Services from './components/Services'
 import Footer from './components/Footer'
-import Shop from './components/Shop'
+import Shop from './components/shop/Shop'
 import WhatsappButton from './components/WhatsappButton'
 
 function Home() {
