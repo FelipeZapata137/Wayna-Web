@@ -1,12 +1,10 @@
-// src/components/shop/CupcakesToggleCard.jsx
 import { useState } from 'react'
 
 const ORANGE_COLOR = "#F58220"
 
 export default function CupcakesToggleCard({ groupProducts, onCotizar }) {
-  const [isWithWindow, setIsWithWindow] = useState(true) // Por defecto: Con Ventana
+  const [isWithWindow, setIsWithWindow] = useState(true)
 
-  // Filtra los dos productos del grupo
   const withWindow = groupProducts.find(p => p.variant === "con-ventana")
   const withoutWindow = groupProducts.find(p => p.variant === "sin-ventana")
 

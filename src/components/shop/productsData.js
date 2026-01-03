@@ -660,5 +660,4 @@ export const products = [
     units: 1,
     image: "/assets/caja-pizza.png",
   },
-
 ]
