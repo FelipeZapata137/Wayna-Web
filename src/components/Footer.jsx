@@ -203,7 +203,7 @@ export default function Footer() {
           <p>Usamos cookies básicas para que la web funcione bien y sea rápida. No rastreamos tu comportamiento ni usamos herramientas de publicidad invasiva.</p>
 
           <h4 className="text-xl font-bold mt-6">4. Tus derechos</h4>
-          <p>Si en algún momento quieres que eliminemos tu número o cualquier dato que nos diste, solo avísanos y lo borramos en menos de 24 horas.</p>
+          <p>Si en algún momento deseas que eliminemos cualquier información personal que nos hayas proporcionado (como tu número de teléfono o detalles de cotizaciones), solo indícanoslo mediante mensaje directo. Como nuestras operaciones se realizan principalmente a través de WhatsApp y no contamos con una base de datos formal de clientes, normalmente basta con que elimines la conversación desde tu dispositivo. De todas formas, revisaremos y eliminaremos cualquier registro interno que tengamos (notas, capturas o mensajes guardados) en un plazo máximo de 24 horas, y te confirmaremos cuando el proceso haya finalizado.</p>
 
           <p className="mt-6">¿Dudas? Escríbenos al <a href="https://wa.me/593979116621" className="text-wayna-green hover:underline">593-979-116-621</a>. Estamos para ayudarte.</p>
         </div>
