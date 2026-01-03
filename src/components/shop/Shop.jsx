@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { products } from './productsData.js'
 import ProductCard from './ProductCard.jsx'
+import AntigrasaCarouselCard from './AntigrasaCarouselCard.jsx'
+import StickersCard from './StickersCard.jsx'
+import PizzaBoxCard from './PizzaBoxCard.jsx'
 
 const categories = [
   { id: 'all', name: 'Todos' },
@@ -10,6 +13,7 @@ const categories = [
   { id: 'papel-antigrasa', name: 'Papel Antigrasa' },
   { id: 'delivery-box', name: 'Delivery Box' },
   { id: 'dulces-bocaditos', name: 'Dulces y Bocaditos' },
+  { id: 'para-pizza', name: 'Para Pizza' },
   { id: 'extras', name: 'Extras' },
 ]
 
@@ -27,17 +31,22 @@ export default function Shop() {
       `¡Hola Wayna! \n\nEstoy interesado(a) en:\n\n` +
       `Producto: *${product.name}*\n` +
       `Medidas: *${product.dimensions}*\n` +
-      `Precio: *$${product.price.toFixed(2)} / ${product.units} unidades*\n\n` +
-      `Quisiera más información acerca de tiempos de entrega y cotizar por un número de paquetes de: `
+      `Precio: *$${product.price.toFixed(2)} / u*\n\n` +
+      `Quisiera más información acerca de tiempos de entrega y cotizar por un número de unidades: `
     )
 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank')
   }
 
+  const antigrasaProducts = products.filter(p => p.category === 'papel-antigrasa')
+  const stickersProducts = products.filter(p => p.category === 'extras' && p.name.includes('Stickers'))
+  const pizzaBoxes = products.filter(p => p.category === 'para-pizza' && p.name.includes('Caja para Pizza'))
+  const portaPizza = products.find(p => p.name === 'Porta Pizza')
+
   return (
     <section className="pt-24 pb-32 px-6 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h1 data-aos="fade-up" className="text-5xl md:text-6xl font-black mb-4">
             Nuestros Productos
           </h1>
@@ -72,13 +81,50 @@ export default function Shop() {
           </p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onCotizar={handleCotizar}
-              />
-            ))}
+            {activeCategory === 'all' ? (
+              <>
+                {antigrasaProducts.length > 0 && (
+                  <AntigrasaCarouselCard products={antigrasaProducts} onCotizar={handleCotizar} />
+                )}
+
+                {stickersProducts.length > 0 && (
+                  <StickersCard products={stickersProducts} onCotizar={handleCotizar} />
+                )}
+
+                {pizzaBoxes.length > 0 && (
+                  <PizzaBoxCard products={pizzaBoxes} onCotizar={handleCotizar} />
+                )}
+
+                {portaPizza && (
+                  <ProductCard key={portaPizza.id} product={portaPizza} onCotizar={handleCotizar} />
+                )}
+
+                {filteredProducts
+                  .filter(p => 
+                    p.category !== 'papel-antigrasa' && 
+                    !p.name.includes('Stickers') && 
+                    !p.name.includes('Caja para Pizza') &&
+                    p.name !== 'Porta Pizza'
+                  )
+                  .map(product => (
+                    <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
+                  ))}
+              </>
+            ) : activeCategory === 'para-pizza' ? (
+              <>
+                {pizzaBoxes.length > 0 && (
+                  <PizzaBoxCard products={pizzaBoxes} onCotizar={handleCotizar} />
+                )}
+
+                {portaPizza && (
+                  <ProductCard key={portaPizza.id} product={portaPizza} onCotizar={handleCotizar} />
+                )}
+              </>
+            ) : (
+              filteredProducts.map(product => (
+                <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
+              ))
+            )}
           </div>
         )}
       </div>
