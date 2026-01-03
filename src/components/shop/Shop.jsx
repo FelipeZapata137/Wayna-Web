@@ -1,9 +1,11 @@
+// src/components/shop/Shop.jsx
 import { useState } from 'react'
 import { products } from './productsData.js'
 import ProductCard from './ProductCard.jsx'
 import AntigrasaCarouselCard from './AntigrasaCarouselCard.jsx'
 import StickersCard from './StickersCard.jsx'
 import PizzaBoxCard from './PizzaBoxCard.jsx'
+import CupcakesToggleCard from './CupcakesToggleCard.jsx'  // ← tu componente de toggle
 
 const categories = [
   { id: 'all', name: 'Todos' },
@@ -31,17 +33,24 @@ export default function Shop() {
       `¡Hola Wayna! \n\nEstoy interesado(a) en:\n\n` +
       `Producto: *${product.name}*\n` +
       `Medidas: *${product.dimensions}*\n` +
-      `Precio: *$${product.price.toFixed(2)} / u*\n\n` +
-      `Quisiera más información acerca de tiempos de entrega y cotizar por un número de unidades: `
+      `Precio: *$${product.price.toFixed(2)} / ${product.units} unidades*\n\n` +
+      `Quisiera más información acerca de tiempos de entrega y cotizar por un número de paquetes de: `
     )
 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank')
   }
 
+  // Grupos especiales
   const antigrasaProducts = products.filter(p => p.category === 'papel-antigrasa')
   const stickersProducts = products.filter(p => p.category === 'extras' && p.name.includes('Stickers'))
   const pizzaBoxes = products.filter(p => p.category === 'para-pizza' && p.name.includes('Caja para Pizza'))
   const portaPizza = products.find(p => p.name === 'Porta Pizza')
+
+  // Grupos separados para cupcakes
+  const portaCupcakes = products.find(p => p.name.includes('Porta Cupcakes')) // card normal
+  const tresCupcakesProducts = products.filter(p => p.name.includes('3 Cupcakes'))
+  const cuatroCupcakesProducts = products.filter(p => p.name.includes('4 Cupcakes'))
+  const seisCupcakesProducts = products.filter(p => p.name.includes('6 Cupcakes'))
 
   return (
     <section className="pt-24 pb-32 px-6 bg-gray-50 min-h-screen">
@@ -83,28 +92,63 @@ export default function Shop() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {activeCategory === 'all' ? (
               <>
+                {/* Antigrasa carousel */}
                 {antigrasaProducts.length > 0 && (
                   <AntigrasaCarouselCard products={antigrasaProducts} onCotizar={handleCotizar} />
                 )}
 
+                {/* Stickers select */}
                 {stickersProducts.length > 0 && (
                   <StickersCard products={stickersProducts} onCotizar={handleCotizar} />
                 )}
 
+                {/* Pizza boxes select */}
                 {pizzaBoxes.length > 0 && (
                   <PizzaBoxCard products={pizzaBoxes} onCotizar={handleCotizar} />
                 )}
 
+                {/* Porta Pizza normal */}
                 {portaPizza && (
                   <ProductCard key={portaPizza.id} product={portaPizza} onCotizar={handleCotizar} />
                 )}
 
+                {/* Porta Cupcakes (1 unidad) - card normal */}
+                {portaCupcakes && (
+                  <ProductCard key={portaCupcakes.id} product={portaCupcakes} onCotizar={handleCotizar} />
+                )}
+
+                {/* Caja 3 cupcakes con toggle */}
+                {tresCupcakesProducts.length === 2 && (
+                  <CupcakesToggleCard
+                    groupProducts={tresCupcakesProducts}
+                    onCotizar={handleCotizar}
+                  />
+                )}
+
+                {/* Caja 4 cupcakes con toggle */}
+                {cuatroCupcakesProducts.length === 2 && (
+                  <CupcakesToggleCard
+                    groupProducts={cuatroCupcakesProducts}
+                    onCotizar={handleCotizar}
+                  />
+                )}
+
+                {/* Caja 6 cupcakes con toggle */}
+                {seisCupcakesProducts.length === 2 && (
+                  <CupcakesToggleCard
+                    groupProducts={seisCupcakesProducts}
+                    onCotizar={handleCotizar}
+                  />
+                )}
+
+                {/* Resto de productos normales */}
                 {filteredProducts
                   .filter(p => 
                     p.category !== 'papel-antigrasa' && 
                     !p.name.includes('Stickers') && 
                     !p.name.includes('Caja para Pizza') &&
-                    p.name !== 'Porta Pizza'
+                    p.name !== 'Porta Pizza' &&
+                    !p.name.includes('Cupcakes')  // evita duplicar cupcakes
                   )
                   .map(product => (
                     <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
@@ -112,13 +156,56 @@ export default function Shop() {
               </>
             ) : activeCategory === 'para-pizza' ? (
               <>
+                {/* Pizza boxes select */}
                 {pizzaBoxes.length > 0 && (
                   <PizzaBoxCard products={pizzaBoxes} onCotizar={handleCotizar} />
                 )}
 
+                {/* Porta Pizza normal */}
                 {portaPizza && (
                   <ProductCard key={portaPizza.id} product={portaPizza} onCotizar={handleCotizar} />
                 )}
+              </>
+            ) : activeCategory === 'dulces-bocaditos' ? (
+              <>
+                {/* Porta Cupcakes normal */}
+                {portaCupcakes && (
+                  <ProductCard key={portaCupcakes.id} product={portaCupcakes} onCotizar={handleCotizar} />
+                )}
+
+                {/* Caja 3 cupcakes con toggle */}
+                {tresCupcakesProducts.length === 2 && (
+                  <CupcakesToggleCard
+                    groupProducts={tresCupcakesProducts}
+                    onCotizar={handleCotizar}
+                  />
+                )}
+
+                {/* Caja 4 cupcakes con toggle */}
+                {cuatroCupcakesProducts.length === 2 && (
+                  <CupcakesToggleCard
+                    groupProducts={cuatroCupcakesProducts}
+                    onCotizar={handleCotizar}
+                  />
+                )}
+
+                {/* Caja 6 cupcakes con toggle */}
+                {seisCupcakesProducts.length === 2 && (
+                  <CupcakesToggleCard
+                    groupProducts={seisCupcakesProducts}
+                    onCotizar={handleCotizar}
+                  />
+                )}
+
+                {/* Resto en dulces-bocaditos */}
+                {filteredProducts
+                  .filter(p => 
+                    !p.name.includes('Cupcakes') &&
+                    p.name !== 'Porta Cupcakes'
+                  )
+                  .map(product => (
+                    <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
+                  ))}
               </>
             ) : (
               filteredProducts.map(product => (
