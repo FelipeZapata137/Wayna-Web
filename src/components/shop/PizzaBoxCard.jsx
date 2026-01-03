@@ -31,7 +31,7 @@ export default function PizzaBoxCard({ products, onCotizar }) {
         >
           {products.map((p, idx) => (
             <option key={p.id} value={idx}>
-              {p.dimensions.split(' ')[0]} cm - ${p.price.toFixed(2)} / u
+              {p.dimensions.split(' ')[0]} cm
             </option>
           ))}
         </select>
