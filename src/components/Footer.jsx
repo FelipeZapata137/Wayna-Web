@@ -157,7 +157,7 @@ export default function Footer() {
           <p>Los precios mostrados son referenciales y por paquete (excepto cajas para pizza, que se venden por unidad). Pueden cambiar sin previo aviso. El precio definitivo es el que confirmamos por WhatsApp antes de procesar el pedido.</p>
 
           <h4 className="text-xl font-bold mt-6">2. Forma de Pago</h4>
-          <p>El pago es del 100% anticipado antes de iniciar la producción. Aceptamos transferencia bancaria o efectivo al momento de la entrega.</p>
+          <p>El pago es del 50% anticipado antes de iniciar la producción. Aceptamos transferencia bancaria o efectivo al momento de la entrega.</p>
 
           <h4 className="text-xl font-bold mt-6">3. Envíos y Entregas</h4>
           <p>
@@ -170,8 +170,11 @@ export default function Footer() {
           <p>No aceptamos cambios ni devoluciones en productos personalizados (stickers, impresiones, etc.). Si el producto llega dañado, avísanos en las primeras 48 horas con foto del paquete y lo resolvemos.</p>
 
           <h4 className="text-xl font-bold mt-6">5. Tiempos de Entrega</h4>
-          <p>Generalmente entre 2 y 5 días hábiles después de aprobado el diseño y recibido el pago. Pedidos grandes o personalizados pueden tardar más (te avisamos siempre).</p>
-
+          <p>Manejamos nuestros tiempos de entrega de la siguiente manera:</p>
+          <ul className="list-disc pl-6">
+            <li>Para productos en stock el tiempo de entrega es de un máximo de hasta 24 horas.</li>
+            <li>Generalmente entre 2 y 5 días hábiles después de aprobado el diseño y recibido el pago. Pedidos grandes o personalizados pueden tardar más (te avisamos siempre).</li>
+          </ul>
           <h4 className="text-xl font-bold mt-6">6. Responsabilidad</h4>
           <p>Nos esforzamos por entregar todo en perfectas condiciones, pero no respondemos por daños o pérdidas una vez entregado el producto al cliente o transportista.</p>
 
