@@ -14,6 +14,7 @@ const categories = [
   { id: 'papel-antigrasa', name: 'Papel Antigrasa' },
   { id: 'delivery-box', name: 'Delivery Box' },
   { id: 'dulces-bocaditos', name: 'Dulces y Bocaditos' },
+  { id: 'cajas-ventana', name: 'Cajas con Ventana' },
   { id: 'para-pizza', name: 'Para Pizza' },
   { id: 'extras', name: 'Extras' },
 ]
