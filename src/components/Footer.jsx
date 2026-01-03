@@ -161,7 +161,7 @@ export default function Footer() {
 
           <h4 className="text-xl font-bold mt-6">3. Envíos y Entregas</h4>
           <p>
-            - <strong>Quito:</strong> Entrega a domicilio $3.00.<br/>
+            - <strong>Quito:</strong> Entrega a domicilio a partir de $3.00.<br/>
             - <strong>Resto del país:</strong> Envío por Servientrega o similar (costo aparte, te lo confirmamos antes).<br/>
             No nos hacemos responsables por retrasos o daños causados por la empresa de envíos.
           </p>
