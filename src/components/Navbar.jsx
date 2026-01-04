@@ -7,29 +7,33 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
-  const scrollYRef = useRef(0) // Usamos ref para no causar re-renders
+  const scrollYRef = useRef(0)
 
-  // Congelar / descongelar scroll + guardar posición
+  // Congelar / descongelar scroll sin destello
   useEffect(() => {
     if (mobileMenuOpen) {
       scrollYRef.current = window.scrollY
       document.body.style.position = 'fixed'
       document.body.style.top = `-${scrollYRef.current}px`
       document.body.style.width = '100%'
-      document.body.style.overscrollBehavior = 'none' // Evita rebotes en iOS
+      document.body.style.overscrollBehavior = 'none'
     } else {
-      // Restauramos con pequeño delay para evitar salto en algunos navegadores
-      const restoreScroll = () => {
-        document.body.style.position = ''
-        document.body.style.top = ''
-        document.body.style.width = ''
-        document.body.style.overscrollBehavior = ''
-        window.scrollTo(0, scrollYRef.current)
-      }
+      // Restauración sin parpadeo
+      const currentScroll = scrollYRef.current
 
-      // 50ms de delay es suficiente en la mayoría de casos
-      const timer = setTimeout(restoreScroll, 50)
-      return () => clearTimeout(timer)
+      // 1. Scroll instantáneo mientras body está fijo (invisible para el usuario)
+      window.scrollTo({ top: currentScroll, behavior: 'instant' })
+
+      // 2. Quitamos fixed inmediatamente después
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      document.body.style.overscrollBehavior = ''
+
+      // 3. Forzamos re-render suave (evita destello en algunos navegadores)
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: currentScroll, behavior: 'instant' })
+      })
     }
 
     return () => {
@@ -116,7 +120,7 @@ export default function Navbar() {
       {/* Menú móvil */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity duration-300"
           onClick={closeMobileMenu}
         >
           <div 
