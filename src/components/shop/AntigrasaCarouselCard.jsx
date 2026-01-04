@@ -8,7 +8,7 @@ export default function AntigrasaCarouselCard({ products, onCotizar }) {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % products.length)
-    }, 2500)
+    }, 2000)
 
     return () => clearInterval(timer)
   }, [products.length])
