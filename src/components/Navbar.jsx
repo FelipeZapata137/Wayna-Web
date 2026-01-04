@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart, Menu, X } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
@@ -6,10 +5,11 @@ import { useState, useEffect, useRef } from 'react'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
   const location = useLocation()
   const scrollYRef = useRef(0)
 
-  // Congelar / descongelar scroll sin destello
   useEffect(() => {
     if (mobileMenuOpen) {
       scrollYRef.current = window.scrollY
@@ -18,19 +18,15 @@ export default function Navbar() {
       document.body.style.width = '100%'
       document.body.style.overscrollBehavior = 'none'
     } else {
-      // Restauración sin parpadeo
       const currentScroll = scrollYRef.current
 
-      // 1. Scroll instantáneo mientras body está fijo (invisible para el usuario)
       window.scrollTo({ top: currentScroll, behavior: 'instant' })
 
-      // 2. Quitamos fixed inmediatamente después
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
       document.body.style.overscrollBehavior = ''
 
-      // 3. Forzamos re-render suave (evita destello en algunos navegadores)
       requestAnimationFrame(() => {
         window.scrollTo({ top: currentScroll, behavior: 'instant' })
       })
@@ -44,7 +40,6 @@ export default function Navbar() {
     }
   }, [mobileMenuOpen])
 
-  // Detectar scroll para navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -56,8 +51,8 @@ export default function Navbar() {
   const headerClasses = `
     fixed top-0 left-0 right-0 z-50 transition-all duration-500
     ${scrolled 
-      ? 'bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-100' 
-      : 'bg-white/90 shadow-md'
+      ? 'bg-white/40 backdrop-blur-xl shadow-xl border-b border-gray-100' 
+      : 'bg-white/80 shadow-md'
     }
   `
 
@@ -72,11 +67,35 @@ export default function Navbar() {
     ${location.pathname === path ? 'after:w-full' : 'hover:after:w-full'}
   `
 
-  const closeMobileMenu = () => setMobileMenuOpen(false)
+  const handleMenuToggle = () => {
+    if (mobileMenuOpen) {
+      setIsAnimating(true)
+      setShowMenu(false)
+      setTimeout(() => {
+        setMobileMenuOpen(false)
+        setIsAnimating(false)
+      }, 300)
+    } else {
+      setMobileMenuOpen(true)
+      setIsAnimating(false)
+      setTimeout(() => {
+        setShowMenu(true)
+      }, 10)
+    }
+  }
+
+  const closeMobileMenu = () => {
+    setIsAnimating(true)
+    setShowMenu(false)
+    setTimeout(() => {
+      setMobileMenuOpen(false)
+      setIsAnimating(false)
+    }, 300)
+  }
 
   return (
     <>
-      <header className={headerClasses}>
+      <header className={`${headerClasses} ${mobileMenuOpen ? 'opacity-30 pointer-events-none' : ''}`}>
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           {/* Logo */}
           <Link 
@@ -108,7 +127,7 @@ export default function Navbar() {
             </Link>
 
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={handleMenuToggle}
               className="lg:hidden p-3 hover:bg-gray-100 rounded-full transition"
             >
               {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -117,45 +136,46 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Menú móvil */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity duration-300"
+          className={`fixed inset-0 z-50 bg-black/70 backdrop-blur-sm transition-opacity duration-300
+            ${showMenu ? 'opacity-100' : 'opacity-0'}
+          `}
           onClick={closeMobileMenu}
         >
           <div 
-            className="bg-white h-full w-4/5 max-w-xs ml-auto shadow-2xl overflow-y-auto transform transition-transform duration-300"
+            className={`bg-white h-full w-4/5 max-w-xs ml-auto shadow-2xl overflow-y-auto
+              transition-transform duration-300 ease-out
+              ${showMenu ? 'translate-x-0' : 'translate-x-full'}
+            `}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 flex justify-between items-center border-b sticky top-0 bg-white z-10">
-              <span className="text-2xl font-black text-wayna-green">WAYNA</span>
-              <button onClick={closeMobileMenu} className="p-2 hover:bg-gray-100 rounded-full">
-                <X size={28} className="text-gray-700" />
-              </button>
+            <div className="pt-8 pb-6 px-8 border-b">
+              <span className="text-3xl font-black text-wayna-green">WAYNA</span>
             </div>
 
             <nav className="flex flex-col py-10 px-8 gap-8 text-xl font-medium">
-              <Link 
-                to="/" 
-                onClick={closeMobileMenu} 
-                className={linkClasses('/')}
-              >
-                Inicio
-              </Link>
-              <Link 
-                to="/tienda" 
-                onClick={closeMobileMenu} 
-                className={linkClasses('/tienda')}
-              >
-                Catálogo
-              </Link>
-              <Link 
-                to="/contacto" 
-                onClick={closeMobileMenu} 
-                className={linkClasses('/contacto')}
-              >
-                Contacto
-              </Link>
+              {[
+                { to: '/', label: 'Inicio' },
+                { to: '/tienda', label: 'Catálogo' },
+                { to: '/contacto', label: 'Contacto' }
+              ].map((link, index) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={closeMobileMenu}
+                  className={`${linkClasses(link.to)} transform transition-all duration-300
+                    ${showMenu 
+                      ? 'translate-x-0 opacity-100' 
+                      : 'translate-x-8 opacity-0'
+                    }`}
+                  style={{
+                    transitionDelay: showMenu ? `${100 + index * 80}ms` : '0ms'
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
         </div>
