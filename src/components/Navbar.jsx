@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart, Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
@@ -7,6 +8,19 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
 
+  // Congelar scroll cuando el menú móvil está abierto
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileMenuOpen])
+
+  // Detectar scroll para cambiar estilo del navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -39,6 +53,7 @@ export default function Navbar() {
   return (
     <header className={headerClasses}>
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        {/* Logo */}
         <Link 
           to="/" 
           className="flex items-center gap-3 group transition-transform duration-300 hover:scale-105"
@@ -51,12 +66,14 @@ export default function Navbar() {
           </span>
         </Link>
 
+        {/* Menú desktop */}
         <nav className="hidden lg:flex items-center gap-12">
           <Link to="/" className={linkClasses('/')}>Inicio</Link>
           <Link to="/tienda" className={linkClasses('/tienda')}>Catálogo</Link>
           <Link to="/contacto" className={linkClasses('/contacto')}>Contacto</Link>
         </nav>
 
+        {/* Acciones */}
         <div className="flex items-center gap-4">
           <Link 
             to="/tienda" 
@@ -74,21 +91,23 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Menú móvil - overlay completo + panel lateral */}
       {mobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+          className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
           onClick={closeMobileMenu}
         >
           <div 
-            className="bg-white h-full w-4/5 max-w-xs ml-auto shadow-2xl"
+            className="bg-white h-full w-4/5 max-w-xs ml-auto shadow-2xl transform transition-transform duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6 flex justify-between items-center border-b">
               <span className="text-2xl font-black text-wayna-green">WAYNA</span>
-              <button onClick={closeMobileMenu}>
-                <X size={28} />
+              <button onClick={closeMobileMenu} className="p-2 hover:bg-gray-100 rounded-full">
+                <X size={28} className="text-gray-700" />
               </button>
             </div>
+
             <nav className="flex flex-col py-10 px-8 gap-8 text-xl font-medium">
               <Link 
                 to="/" 
