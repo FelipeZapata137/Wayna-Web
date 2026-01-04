@@ -161,7 +161,7 @@ export default function Footer() {
           <p>Los precios mostrados son referenciales y por paquete (excepto cajas para pizza, que se venden por unidad). Pueden cambiar sin previo aviso. El precio definitivo es el que confirmamos por WhatsApp antes de procesar el pedido.</p>
 
           <h4 className="text-xl font-bold mt-6">2. Forma de Pago</h4>
-          <p>El pago es del 50% anticipado al confirmar tu pedido y el restante contraengrega. Aceptamos transferencia bancaria o efectivo.</p>
+          <p>El pago es del 50% anticipado al confirmar tu pedido y el restante contraentrega. Aceptamos transferencia bancaria o efectivo.</p>
 
           <h4 className="text-xl font-bold mt-6">3. Envíos y Entregas</h4>
           <p>
