@@ -1,10 +1,9 @@
-// src/components/Footer.jsx
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, MessageCircle, MapPin, Clock } from 'lucide-react'
 
 function Modal({ isOpen, onClose, title, children }) {
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <div 
@@ -33,12 +32,12 @@ function Modal({ isOpen, onClose, title, children }) {
         </p>
       </div>
     </div>
-  );
+  )
 }
 
 export default function Footer() {
-  const [modalTermsOpen, setModalTermsOpen] = useState(false);
-  const [modalPrivacyOpen, setModalPrivacyOpen] = useState(false);
+  const [modalTermsOpen, setModalTermsOpen] = useState(false)
+  const [modalPrivacyOpen, setModalPrivacyOpen] = useState(false)
 
   return (
     <>
@@ -92,7 +91,7 @@ export default function Footer() {
                 <p className="text-gray-300 leading-relaxed">
                   Av 13 de Junio S2-93 y<br />
                   Segundo Silva, Quito,<br />
-                  Ecuador (Solo retiro)
+                  Ecuador (Solo retiro con cita previa)
                 </p>
               </div>
             </div>
@@ -118,6 +117,11 @@ export default function Footer() {
               <li>
                 <Link to="/tienda" className="hover:text-wayna-green transition">
                   Catálogo
+                </Link>
+              </li>
+              <li>
+                <Link to="/contacto" className="hover:text-wayna-green transition">
+                  Contáctanos
                 </Link>
               </li>
               <li>
@@ -175,6 +179,7 @@ export default function Footer() {
             <li>Para productos en stock el tiempo de entrega es de un máximo de hasta 24 horas.</li>
             <li>Generalmente entre 2 y 5 días hábiles después de aprobado el diseño y recibido el pago. Pedidos grandes o personalizados pueden tardar más (te avisamos siempre).</li>
           </ul>
+
           <h4 className="text-xl font-bold mt-6">6. Responsabilidad</h4>
           <p>Nos esforzamos por entregar todo en perfectas condiciones, pero no respondemos por daños o pérdidas una vez entregado el producto al cliente o transportista.</p>
 
