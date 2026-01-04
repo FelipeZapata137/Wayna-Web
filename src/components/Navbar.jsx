@@ -8,21 +8,23 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
 
-  // Congelar scroll del body cuando menú móvil está abierto
+  // Guardamos la posición de scroll antes de abrir el menú
+  const [scrollPosition, setScrollPosition] = useState(0)
+
+  // Congelar scroll y guardar posición
   useEffect(() => {
     if (mobileMenuOpen) {
-      // Guardamos la posición actual para evitar salto al abrir/cerrar
-      const scrollY = window.scrollY
+      const currentScroll = window.scrollY
+      setScrollPosition(currentScroll)
       document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
+      document.body.style.top = `-${currentScroll}px`
       document.body.style.width = '100%'
     } else {
-      // Restauramos scroll
-      const scrollY = document.body.style.top
+      // Restaurar exactamente la posición guardada
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
+      window.scrollTo(0, scrollPosition)
     }
 
     return () => {
@@ -30,7 +32,7 @@ export default function Navbar() {
       document.body.style.top = ''
       document.body.style.width = ''
     }
-  }, [mobileMenuOpen])
+  }, [mobileMenuOpen, scrollPosition])
 
   // Detectar scroll para navbar
   useEffect(() => {
@@ -105,7 +107,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Menú móvil - overlay + panel */}
+      {/* Menú móvil */}
       {mobileMenuOpen && (
         <div 
           className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
