@@ -177,7 +177,7 @@ export default function Footer() {
           <p>Manejamos nuestros tiempos de entrega de la siguiente manera:</p>
           <ul className="list-disc pl-6">
             <li>Para productos en stock el tiempo de entrega es de un máximo de hasta 24 horas.</li>
-            <li>Generalmente entre 2 y 5 días hábiles después de aprobado el diseño y recibido el pago. Pedidos grandes o personalizados pueden tardar más (te avisamos siempre).</li>
+            <li>Para productos personalizados, 5 días hábiles después de aprobado el diseño y recibido el pago. Pedidos grandes o personalizados pueden tardar más (te avisamos siempre).</li>
           </ul>
 
           <h4 className="text-xl font-bold mt-6">6. Responsabilidad</h4>
