@@ -445,7 +445,7 @@ export const products = [
 
   {
     id: 27,
-    name: "Porta Cupcakes",
+    name: "Caja de 1 Cupcake",
     category: "dulces-bocaditos",
     desc: "Caja ideal para transportar un cupcake de manera segura.",
     dimensions: "10 x 10 x 10 cm",
@@ -544,7 +544,7 @@ export const products = [
     id: 41,
     name: "Porta Pizza",
     category: "para-pizza",
-    desc: "Por implementar",
+    desc: "Para un slice de pizza.",
     dimensions: "20 x 14 x 1,5 cm",
     price: 4.00,
     units: 100,

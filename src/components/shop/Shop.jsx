@@ -60,7 +60,7 @@ export default function Shop() {
   const pizzaBoxes = products.filter(p => p.category === 'para-pizza' && p.name.includes('Caja para Pizza'))
   const portaPizza = products.find(p => p.name === 'Porta Pizza')
 
-  const portaCupcakes = products.find(p => p.name.includes('Porta Cupcakes'))
+  const portaCupcakes = products.find(p => p.name.includes('Caja de 1 Cupcake'))
   const tresCupcakesProducts = products.filter(p => p.toggleGroup === 'tres-cupcakes')
   const cuatroCupcakesProducts = products.filter(p => p.toggleGroup === 'cuatro-cupcakes')
   const seisCupcakesProducts = products.filter(p => p.toggleGroup === 'seis-cupcakes')
@@ -248,7 +248,7 @@ export default function Shop() {
                   <CupcakesToggleCard groupProducts={seisCupcakesProducts} onCotizar={handleCotizar} />
                 )}
                 {filteredProducts
-                  .filter(p => !p.name.includes('Cupcakes') && p.name !== 'Porta Cupcakes')
+                  .filter(p => !p.name.includes('Cupcakes') && p.name !== 'Caja de 1 Cupcake')
                   .map(product => (
                     <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
                   ))}

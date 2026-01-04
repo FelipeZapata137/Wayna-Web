@@ -47,7 +47,7 @@ export default function Footer() {
           <div>
             <h3 className="text-3xl font-black mb-4">Wayna</h3>
             <p className="text-gray-300 leading-relaxed">
-              Soluciones de empaque sostenibles y personalizadas para la industria moderna.
+              Empaques sostenibles y personalizables para la industria moderna.
             </p>
 
             <div className="flex gap-6 mt-6">
@@ -161,7 +161,7 @@ export default function Footer() {
           <p>Los precios mostrados son referenciales y por paquete (excepto cajas para pizza, que se venden por unidad). Pueden cambiar sin previo aviso. El precio definitivo es el que confirmamos por WhatsApp antes de procesar el pedido.</p>
 
           <h4 className="text-xl font-bold mt-6">2. Forma de Pago</h4>
-          <p>El pago es del 50% anticipado antes de iniciar la producción. Aceptamos transferencia bancaria o efectivo al momento de la entrega.</p>
+          <p>El pago es del 50% anticipado al confirmar tu pedido y el restante contraengrega. Aceptamos transferencia bancaria o efectivo.</p>
 
           <h4 className="text-xl font-bold mt-6">3. Envíos y Entregas</h4>
           <p>

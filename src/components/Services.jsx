@@ -2,10 +2,10 @@ import { Package, ShieldCheck, Leaf, Truck } from 'lucide-react'
 
 export default function Services() {
   const features = [
-    { icon: Package, title: "Variedad de Productos", desc: "Contamos con gran variedad de productos nacionales e importados." },
-    { icon: ShieldCheck, title: "Alta Calidad", desc: "Productos de alta calidad garantizados para proteger tus envíos." },
+    { icon: Package, title: "Variedad de Productos", desc: "Contamos con gran variedad de productos nacionales elaborados con la mejor materia prima." },
+    { icon: ShieldCheck, title: "Alta Calidad", desc: "Artículos garantizados que elevan la presentación y la imagen de tu producto." },
     { icon: Leaf, title: "Precios Asequibles", desc: "Orientado a satisfacer las diferentes necesidades de los consumidores." },
-    { icon: Truck, title: "Envíos Nacionales", desc: "Llegamos a donde estés con nuestra red de distribución." },
+    { icon: Truck, title: "Envíos Nacionales", desc: "Hacemos llegar nuestros productos de forma segura y confiable a cualquier rincón del Ecuador" },
   ]
 
   return (

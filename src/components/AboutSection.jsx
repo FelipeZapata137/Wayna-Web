@@ -7,10 +7,14 @@ export default function AboutSection() {
           <div className="w-24 h-1 bg-wayna-green mb-10" />
 
           <h3 className="text-2xl font-bold mb-4">MISIÓN</h3>
+          <p className="text-gray-600 leading-relaxed">
+            Impulsar a los emprendedores y negocios de todos los tamaños ofreciendo cajas de cartulina de alta calidad
+            a precios justos y accesibles. 
+          </p>
           <p className="text-gray-600 mb-10 leading-relaxed">
-            Conocer las necesidades de los consumidores en el área de alimentos que día a día va cambiando 
-            de tendencia de acuerdo al mercado y a la competencia. Estamos de la mano de la industria HORECA 
-            para avanzar al mismo tiempo y poder ofrecer una solución a cada uno de los nuevos requerimientos.
+            Producimos al por mayor para que incluso en compras mínimas nuestros clientes se beneficien del costo real 
+            de producción, y desarrollamos soluciones personalizadas que se adaptan al 100% a la identidad, necesidad y 
+            visión de cada marca.
           </p>
 
           <h3 className="text-2xl font-bold mb-4">VISIÓN</h3>
