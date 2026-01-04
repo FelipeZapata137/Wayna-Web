@@ -8,19 +8,31 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
 
-  // Congelar scroll cuando el menú móvil está abierto
+  // Congelar scroll del body cuando menú móvil está abierto
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
+      // Guardamos la posición actual para evitar salto al abrir/cerrar
+      const scrollY = window.scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = '100%'
     } else {
-      document.body.style.overflow = ''
+      // Restauramos scroll
+      const scrollY = document.body.style.top
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      window.scrollTo(0, parseInt(scrollY || '0') * -1)
     }
+
     return () => {
-      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
     }
   }, [mobileMenuOpen])
 
-  // Detectar scroll para cambiar estilo del navbar
+  // Detectar scroll para navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -32,8 +44,8 @@ export default function Navbar() {
   const headerClasses = `
     fixed top-0 left-0 right-0 z-50 transition-all duration-500
     ${scrolled 
-      ? 'bg-white/90 backdrop-blur-xl shadow-xl border-b border-gray-100' 
-      : 'bg-white/80 shadow-md'
+      ? 'bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-100' 
+      : 'bg-white/90 shadow-md'
     }
   `
 
@@ -51,57 +63,59 @@ export default function Navbar() {
   const closeMobileMenu = () => setMobileMenuOpen(false)
 
   return (
-    <header className={headerClasses}>
-      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        {/* Logo */}
-        <Link 
-          to="/" 
-          className="flex items-center gap-3 group transition-transform duration-300 hover:scale-105"
-        >
-          <div className="w-10 h-10 bg-wayna-green rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:shadow-xl transition-shadow">
-            W
-          </div>
-          <span className="text-2xl font-black text-gray-900 group-hover:text-wayna-green transition-colors">
-            WAYNA
-          </span>
-        </Link>
-
-        {/* Menú desktop */}
-        <nav className="hidden lg:flex items-center gap-12">
-          <Link to="/" className={linkClasses('/')}>Inicio</Link>
-          <Link to="/tienda" className={linkClasses('/tienda')}>Catálogo</Link>
-          <Link to="/contacto" className={linkClasses('/contacto')}>Contacto</Link>
-        </nav>
-
-        {/* Acciones */}
-        <div className="flex items-center gap-4">
+    <>
+      <header className={headerClasses}>
+        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+          {/* Logo */}
           <Link 
-            to="/tienda" 
-            className="p-3 hover:bg-gray-100 rounded-full transition transform hover:scale-110"
+            to="/" 
+            className="flex items-center gap-3 group transition-transform duration-300 hover:scale-105"
           >
-            <ShoppingCart size={26} className="text-gray-700 hover:text-wayna-green transition-colors" />
+            <div className="w-10 h-10 bg-wayna-green rounded-full flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:shadow-xl transition-shadow">
+              W
+            </div>
+            <span className="text-2xl font-black text-gray-900 group-hover:text-wayna-green transition-colors">
+              WAYNA
+            </span>
           </Link>
 
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-3 hover:bg-gray-100 rounded-full transition"
-          >
-            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
-        </div>
-      </div>
+          {/* Menú desktop */}
+          <nav className="hidden lg:flex items-center gap-12">
+            <Link to="/" className={linkClasses('/')}>Inicio</Link>
+            <Link to="/tienda" className={linkClasses('/tienda')}>Catálogo</Link>
+            <Link to="/contacto" className={linkClasses('/contacto')}>Contacto</Link>
+          </nav>
 
-      {/* Menú móvil - overlay completo + panel lateral */}
+          {/* Acciones */}
+          <div className="flex items-center gap-4">
+            <Link 
+              to="/tienda" 
+              className="p-3 hover:bg-gray-100 rounded-full transition transform hover:scale-110"
+            >
+              <ShoppingCart size={26} className="text-gray-700 hover:text-wayna-green transition-colors" />
+            </Link>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-3 hover:bg-gray-100 rounded-full transition"
+            >
+              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Menú móvil - overlay + panel */}
       {mobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
           onClick={closeMobileMenu}
         >
           <div 
-            className="bg-white h-full w-4/5 max-w-xs ml-auto shadow-2xl transform transition-transform duration-300"
+            className="bg-white h-full w-4/5 max-w-xs ml-auto shadow-2xl overflow-y-auto transform transition-transform duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 flex justify-between items-center border-b">
+            <div className="p-6 flex justify-between items-center border-b sticky top-0 bg-white z-10">
               <span className="text-2xl font-black text-wayna-green">WAYNA</span>
               <button onClick={closeMobileMenu} className="p-2 hover:bg-gray-100 rounded-full">
                 <X size={28} className="text-gray-700" />
@@ -134,6 +148,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </header>
+    </>
   )
 }
