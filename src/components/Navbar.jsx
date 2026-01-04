@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart, Menu, X } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
@@ -11,7 +10,6 @@ export default function Navbar() {
   const location = useLocation()
   const scrollYRef = useRef(0)
 
-  // Congelar / descongelar scroll sin destello
   useEffect(() => {
     if (mobileMenuOpen) {
       scrollYRef.current = window.scrollY
@@ -20,19 +18,15 @@ export default function Navbar() {
       document.body.style.width = '100%'
       document.body.style.overscrollBehavior = 'none'
     } else {
-      // Restauración sin parpadeo
       const currentScroll = scrollYRef.current
 
-      // 1. Scroll instantáneo mientras body está fijo (invisible para el usuario)
       window.scrollTo({ top: currentScroll, behavior: 'instant' })
 
-      // 2. Quitamos fixed inmediatamente después
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
       document.body.style.overscrollBehavior = ''
 
-      // 3. Forzamos re-render suave (evita destello en algunos navegadores)
       requestAnimationFrame(() => {
         window.scrollTo({ top: currentScroll, behavior: 'instant' })
       })
@@ -46,7 +40,6 @@ export default function Navbar() {
     }
   }, [mobileMenuOpen])
 
-  // Detectar scroll para navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -58,8 +51,8 @@ export default function Navbar() {
   const headerClasses = `
     fixed top-0 left-0 right-0 z-50 transition-all duration-500
     ${scrolled 
-      ? 'bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-100' 
-      : 'bg-white/90 shadow-md'
+      ? 'bg-white/40 backdrop-blur-xl shadow-xl border-b border-gray-100' 
+      : 'bg-white shadow-md'
     }
   `
 
@@ -76,7 +69,6 @@ export default function Navbar() {
 
   const handleMenuToggle = () => {
     if (mobileMenuOpen) {
-      // Cerrar: activar animación de salida
       setIsAnimating(true)
       setShowMenu(false)
       setTimeout(() => {
@@ -84,10 +76,8 @@ export default function Navbar() {
         setIsAnimating(false)
       }, 300)
     } else {
-      // Abrir: montar el componente primero, luego animar
       setMobileMenuOpen(true)
       setIsAnimating(false)
-      // Pequeño delay para que el DOM se monte antes de animar
       setTimeout(() => {
         setShowMenu(true)
       }, 10)
@@ -107,7 +97,6 @@ export default function Navbar() {
     <>
       <header className={`${headerClasses} ${mobileMenuOpen ? 'opacity-30 pointer-events-none' : ''}`}>
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          {/* Logo */}
           <Link 
             to="/" 
             className="flex items-center gap-3 group transition-transform duration-300 hover:scale-105"
@@ -120,14 +109,12 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Menú desktop */}
           <nav className="hidden lg:flex items-center gap-12">
             <Link to="/" className={linkClasses('/')}>Inicio</Link>
             <Link to="/tienda" className={linkClasses('/tienda')}>Catálogo</Link>
             <Link to="/contacto" className={linkClasses('/contacto')}>Contacto</Link>
           </nav>
 
-          {/* Acciones */}
           <div className="flex items-center gap-4">
             <Link 
               to="/tienda" 
@@ -146,7 +133,6 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Menú móvil con animaciones suaves */}
       {mobileMenuOpen && (
         <div 
           className={`fixed inset-0 z-50 bg-black/70 backdrop-blur-sm transition-opacity duration-300
