@@ -141,15 +141,29 @@ export const products = [
     units: 25,
     image: "/assets/portaVasos.png",
   },
-    {
-    id: 37,
-    name: "Caja para Botella de Vino sin Impresión",
+  {
+    id: 301,
+    name: "Caja para Botella de Vino sin Impresión (25 u)",
     category: "porta-productos",
-    desc: "Contenedor diseñado para botellas de vino y similares.",
+    desc: "Contenedor diseñado para botellas de vino y similares. Paquete de 25 unidades. Entrega a domicilio Quito $3.00. Envíos a todo el país.",
+    dimensions: "8.5 x 8.5 x 38 cm",
+    price: 8.50,
+    units: 25,
+    image: "/assets/botella-vino-sin-impresion.png",
+    toggleGroup: "botella-vino",
+    variant: "25u"
+  },
+  {
+    id: 302,
+    name: "Caja para Botella de Vino sin Impresión (12 u)",
+    category: "porta-productos",
+    desc: "Contenedor diseñado para botellas de vino y similares. Paquete de 12 unidades. Entrega a domicilio Quito $3.00. Envíos a todo el país.",
     dimensions: "8.5 x 8.5 x 38 cm",
     price: 4.75,
     units: 12,
     image: "/assets/botella-vino-sin-impresion.png",
+    toggleGroup: "botella-vino",
+    variant: "12u"
   },
 
   // Categoria: Recipientes Contenedores
@@ -250,7 +264,7 @@ export const products = [
     name: "Bandeja Bocaditos 3",
     category: "canoas-bandejas",
     desc: "Bandeja ideal para servir bocaditos y aperitivos.",
-    dimensions: "31 x 31 x 4 cm",
+    dimensions: "31.3 x 31.3 x 4 cm",
     price: 6.00,
     units: 25,
     image: "/assets/BandejaBocaditos03.png",
@@ -318,14 +332,28 @@ export const products = [
     image: "/assets/MegaBigBox.png",
   },
   {
-    id: 38,
-    name: "Gigante Big Box",
+    id: 303,
+    name: "Gigante Big Box (25 u)",
     category: "delivery-box",
-    desc: "Caja extra grande para envíos voluminosos.",
+    desc: "Caja extra grande para envíos voluminosos. Paquete de 25 unidades.",
     dimensions: "31 x 31 x 8 cm",
     price: 13.00,
     units: 25,
     image: "/assets/gigante-big-box.png",
+    toggleGroup: "gigante-bigbox",
+    variant: "25u"
+  },
+  {
+    id: 304,
+    name: "Gigante Big Box (12 u)",
+    category: "delivery-box",
+    desc: "Caja extra grande para envíos voluminosos. Paquete de 12 unidades.",
+    dimensions: "31 x 31 x 8 cm",
+    price: 8.00,
+    units: 12,
+    image: "/assets/gigante-big-box.png",
+    toggleGroup: "gigante-bigbox",
+    variant: "12u"
   }, 
   {
     id: 25,
@@ -487,14 +515,28 @@ export const products = [
     image: "/assets/BoxConVentana05.png",
   },
   {
-    id: 56,
-    name: "Box 6 con Ventana",
+    id: 305,
+    name: "Box 6 con Ventana (25 u)",
     category: "cajas-ventana",
-    desc: "Caja mediana con ventana para productos variados.",
+    desc: "Caja mediana con ventana para productos variados. Paquete de 25 unidades.",
     dimensions: "31 x 31 x 8 cm",
     price: 16.00,
     units: 25,
     image: "/assets/BoxConVentana06.png",
+    toggleGroup: "box6-ventana",
+    variant: "25u"
+  },
+  {
+    id: 306,
+    name: "Box 6 con Ventana (12 u)",
+    category: "cajas-ventana",
+    desc: "Caja mediana con ventana para productos variados. Paquete de 12 unidades.",
+    dimensions: "31 x 31 x 8 cm",
+    price: 9.50,
+    units: 12,
+    image: "/assets/BoxConVentana06.png",
+    toggleGroup: "box6-ventana",
+    variant: "12u"
   },
 
   // Categoria: Para Pizza
