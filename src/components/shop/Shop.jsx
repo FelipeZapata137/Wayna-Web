@@ -1,4 +1,3 @@
-// src/components/shop/Shop.jsx
 import { useState, useEffect } from 'react'
 import { products } from './productsData.js'
 import ProductCard from './ProductCard.jsx'
@@ -6,7 +5,7 @@ import AntigrasaCarouselCard from './AntigrasaCarouselCard.jsx'
 import StickersCard from './StickersCard.jsx'
 import PizzaBoxCard from './PizzaBoxCard.jsx'
 import CupcakesToggleCard from './CupcakesToggleCard.jsx'
-import PackageToggleCard from './PackageToggleCard.jsx' // componente para toggles 12/25 y con/sin ventana
+import PackageToggleCard from './PackageToggleCard.jsx'
 import { ArrowUp } from 'lucide-react'
 
 const categories = [
@@ -56,19 +55,16 @@ export default function Shop() {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank')
   }
 
-  // Grupos especiales
   const antigrasaProducts = products.filter(p => p.category === 'papel-antigrasa')
   const stickersProducts = products.filter(p => p.category === 'extras' && p.name.includes('Stickers'))
   const pizzaBoxes = products.filter(p => p.category === 'para-pizza' && p.name.includes('Caja para Pizza'))
   const portaPizza = products.find(p => p.name === 'Porta Pizza')
 
-  // Grupos para toggles de cupcakes
   const portaCupcakes = products.find(p => p.name.includes('Porta Cupcakes'))
   const tresCupcakesProducts = products.filter(p => p.toggleGroup === 'tres-cupcakes')
   const cuatroCupcakesProducts = products.filter(p => p.toggleGroup === 'cuatro-cupcakes')
   const seisCupcakesProducts = products.filter(p => p.toggleGroup === 'seis-cupcakes')
 
-  // Grupos para toggles de paquetes 12/25
   const botellaVinoProducts = products.filter(p => p.toggleGroup === 'botella-vino')
   const giganteBigBoxProducts = products.filter(p => p.toggleGroup === 'gigante-bigbox')
   const box6VentanaProducts = products.filter(p => p.toggleGroup === 'box6-ventana')
@@ -113,32 +109,26 @@ export default function Shop() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {activeCategory === 'all' ? (
               <>
-                {/* Antigrasa carousel */}
                 {antigrasaProducts.length > 0 && (
                   <AntigrasaCarouselCard products={antigrasaProducts} onCotizar={handleCotizar} />
                 )}
 
-                {/* Stickers select */}
                 {stickersProducts.length > 0 && (
                   <StickersCard products={stickersProducts} onCotizar={handleCotizar} />
                 )}
 
-                {/* Pizza boxes select */}
                 {pizzaBoxes.length > 0 && (
                   <PizzaBoxCard products={pizzaBoxes} onCotizar={handleCotizar} />
                 )}
 
-                {/* Porta Pizza normal */}
                 {portaPizza && (
                   <ProductCard key={portaPizza.id} product={portaPizza} onCotizar={handleCotizar} />
                 )}
 
-                {/* Porta Cupcakes normal */}
                 {portaCupcakes && (
                   <ProductCard key={portaCupcakes.id} product={portaCupcakes} onCotizar={handleCotizar} />
                 )}
 
-                {/* Cupcakes toggles */}
                 {tresCupcakesProducts.length === 2 && (
                   <CupcakesToggleCard groupProducts={tresCupcakesProducts} onCotizar={handleCotizar} />
                 )}
@@ -149,7 +139,6 @@ export default function Shop() {
                   <CupcakesToggleCard groupProducts={seisCupcakesProducts} onCotizar={handleCotizar} />
                 )}
 
-                {/* Paquetes 12/25 toggles (12 u primero) */}
                 {botellaVinoProducts.length === 2 && (
                   <PackageToggleCard groupProducts={botellaVinoProducts} onCotizar={handleCotizar} />
                 )}
@@ -160,7 +149,6 @@ export default function Shop() {
                   <PackageToggleCard groupProducts={box6VentanaProducts} onCotizar={handleCotizar} />
                 )}
 
-                {/* Resto de productos normales */}
                 {filteredProducts
                   .filter(p => 
                     p.category !== 'papel-antigrasa' &&
@@ -178,7 +166,6 @@ export default function Shop() {
               </>
             ) : activeCategory === 'porta-productos' ? (
               <>
-                {/* Resto de Porta Productos (ordenados manualmente si quieres) */}
                 {filteredProducts
                   .filter(p => 
                     p.category === 'porta-productos' &&
@@ -188,14 +175,12 @@ export default function Shop() {
                     <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
                   ))}
 
-                {/* Toggle de Botella de Vino al final */}
                 {botellaVinoProducts.length === 2 && (
                   <PackageToggleCard groupProducts={botellaVinoProducts} onCotizar={handleCotizar} />
                 )}
               </>
             ) : activeCategory === 'delivery-box' ? (
               <>
-                {/* Orden específico */}
                 {filteredProducts
                   .filter(p => p.name === 'Cajita Cuadrada' || p.name === 'Cajita Rectangular' || p.name === 'Lonchera' || p.name === 'Big Box' || p.name === 'Mega Big Box' || p.name === 'Caja Combos')
                   .sort((a, b) => {
@@ -206,14 +191,12 @@ export default function Shop() {
                     <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
                   ))}
 
-                {/* Toggle para Gigante Big Box */}
                 {giganteBigBoxProducts.length === 2 && (
                   <PackageToggleCard groupProducts={giganteBigBoxProducts} onCotizar={handleCotizar} />
                 )}
               </>
             ) : activeCategory === 'cajas-ventana' ? (
               <>
-                {/* Orden manual exacto */}
                 {filteredProducts
                   .filter(p => p.name === 'Mini Box con Ventana' || 
                                p.name === 'Box 1 con Ventana' || 
@@ -236,7 +219,6 @@ export default function Shop() {
                     <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
                   ))}
 
-                {/* Box 6 con toggle al final */}
                 {box6VentanaProducts.length === 2 && (
                   <PackageToggleCard groupProducts={box6VentanaProducts} onCotizar={handleCotizar} />
                 )}
@@ -269,7 +251,6 @@ export default function Shop() {
           </div>
         )}
 
-        {/* Botón Back to Top */}
         {showBackToTop && (
           <button
             onClick={scrollToTop}

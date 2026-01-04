@@ -1,10 +1,9 @@
-// src/components/shop/PackageToggleCard.jsx
 import { useState } from 'react'
 
 const ORANGE_COLOR = "#F58220"
 
 export default function PackageToggleCard({ groupProducts, onCotizar }) {
-  const [is12Units, setIs12Units] = useState(true) // Por defecto: 12 unidades (primero)
+  const [is12Units, setIs12Units] = useState(true)
 
   const with12 = groupProducts.find(p => p.variant === "12u")
   const with25 = groupProducts.find(p => p.variant === "25u")
@@ -18,7 +17,6 @@ export default function PackageToggleCard({ groupProducts, onCotizar }) {
       data-aos="fade-up"
       className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative"
     >
-      {/* Toggle con orden 12 u primero */}
       <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full shadow-md px-4 py-1 flex items-center gap-3 text-xs font-medium border border-gray-200 whitespace-nowrap">
         <button
           onClick={() => setIs12Units(true)}
@@ -43,7 +41,6 @@ export default function PackageToggleCard({ groupProducts, onCotizar }) {
         </button>
       </div>
 
-      {/* Resto del componente igual (imagen, título, desc, precio, botón Cotizar) */}
       <div className="relative h-64 overflow-hidden bg-gray-50">
         <img
           src={currentProduct.image}
