@@ -23,7 +23,7 @@ export default function PizzaBoxCard({ products, onCotizar }) {
 
       <div className="p-6">
         <h3 className="text-xl font-bold mb-1 text-gray-900">Cajas para Pizza</h3>
-        <h3 className="text-l mb-1 text-gray-900">Revisa todos los tamaños disponibles:</h3>
+        <h3 className="text-l mb-1 text-gray-900">Revisa todos los tamaños disponibles: 👇🏼  👇🏼  👇🏼</h3>
         <select
           value={selectedIndex}
           onChange={(e) => setSelectedIndex(Number(e.target.value))}

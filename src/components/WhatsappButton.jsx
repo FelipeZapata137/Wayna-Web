@@ -16,8 +16,8 @@ export default function WhatsappButton() {
         
         <span className="absolute inset-0 bg-wayna-green rounded-full scale-0 group-hover:scale-125 opacity-0 group-hover:opacity-50 transition-all duration-1000 delay-200"></span>
 
-        <div className="relative bg-wayna-green text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:shadow-wayna-green/60 transform hover:scale-110 transition-all duration-300">
-          <MessageCircle size={34} strokeWidth={2.5} />
+        <div className="relative bg-wayna-green/75 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:shadow-wayna-green/60 transform hover:scale-110 transition-all duration-300">
+          <MessageCircle size={30} strokeWidth={2.5} />
         </div>
       </div>
 
