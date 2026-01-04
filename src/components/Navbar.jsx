@@ -1,38 +1,44 @@
 // src/components/Navbar.jsx
 import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart, Menu, X } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
+  const scrollYRef = useRef(0) // Usamos ref para no causar re-renders
 
-  // Guardamos la posición de scroll antes de abrir el menú
-  const [scrollPosition, setScrollPosition] = useState(0)
-
-  // Congelar scroll y guardar posición
+  // Congelar / descongelar scroll + guardar posición
   useEffect(() => {
     if (mobileMenuOpen) {
-      const currentScroll = window.scrollY
-      setScrollPosition(currentScroll)
+      scrollYRef.current = window.scrollY
       document.body.style.position = 'fixed'
-      document.body.style.top = `-${currentScroll}px`
+      document.body.style.top = `-${scrollYRef.current}px`
       document.body.style.width = '100%'
+      document.body.style.overscrollBehavior = 'none' // Evita rebotes en iOS
     } else {
-      // Restaurar exactamente la posición guardada
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.width = ''
-      window.scrollTo(0, scrollPosition)
+      // Restauramos con pequeño delay para evitar salto en algunos navegadores
+      const restoreScroll = () => {
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.width = ''
+        document.body.style.overscrollBehavior = ''
+        window.scrollTo(0, scrollYRef.current)
+      }
+
+      // 50ms de delay es suficiente en la mayoría de casos
+      const timer = setTimeout(restoreScroll, 50)
+      return () => clearTimeout(timer)
     }
 
     return () => {
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
+      document.body.style.overscrollBehavior = ''
     }
-  }, [mobileMenuOpen, scrollPosition])
+  }, [mobileMenuOpen])
 
   // Detectar scroll para navbar
   useEffect(() => {
