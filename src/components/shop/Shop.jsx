@@ -1,4 +1,3 @@
-// src/components/shop/Shop.jsx
 import { useState, useEffect } from 'react'
 import { products } from './productsData.js'
 import ProductCard from './ProductCard.jsx'
@@ -56,19 +55,16 @@ export default function Shop() {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank')
   }
 
-  // Grupos especiales
   const antigrasaProducts = products.filter(p => p.category === 'papel-antigrasa')
   const stickersProducts = products.filter(p => p.category === 'extras' && p.name.includes('Stickers'))
   const pizzaBoxes = products.filter(p => p.category === 'para-pizza' && p.name.includes('Caja para Pizza'))
   const portaPizza = products.find(p => p.name === 'Porta Pizza')
 
-  // Grupos para toggles de cupcakes
   const portaCupcakes = products.find(p => p.name.includes('Porta Cupcakes'))
   const tresCupcakesProducts = products.filter(p => p.toggleGroup === 'tres-cupcakes')
   const cuatroCupcakesProducts = products.filter(p => p.toggleGroup === 'cuatro-cupcakes')
   const seisCupcakesProducts = products.filter(p => p.toggleGroup === 'seis-cupcakes')
 
-  // Grupos para toggles de paquetes 12/25
   const botellaVinoProducts = products.filter(p => p.toggleGroup === 'botella-vino')
   const giganteBigBoxProducts = products.filter(p => p.toggleGroup === 'gigante-bigbox')
   const box6VentanaProducts = products.filter(p => p.toggleGroup === 'box6-ventana')
@@ -185,12 +181,10 @@ export default function Shop() {
               </>
             ) : activeCategory === 'para-pizza' ? (
               <>
-                {/* Pizza boxes con toggle */}
                 {pizzaBoxes.length > 0 && (
                   <PizzaBoxCard products={pizzaBoxes} onCotizar={handleCotizar} />
                 )}
 
-                {/* Porta Pizza normal */}
                 {portaPizza && (
                   <ProductCard key={portaPizza.id} product={portaPizza} onCotizar={handleCotizar} />
                 )}
