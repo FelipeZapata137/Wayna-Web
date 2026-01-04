@@ -1,4 +1,3 @@
-// src/pages/Contacto.jsx
 import { useEffect } from 'react'
 import { ArrowRight, MapPin, Clock, MessageCircle, Instagram, Facebook } from 'lucide-react'
 
@@ -10,7 +9,6 @@ export default function Contacto() {
   return (
     <section className="pt-32 pb-24 px-6 bg-gray-50 min-h-screen">
       <div className="max-w-5xl mx-auto">
-        {/* Título principal */}
         <div className="text-center mb-16" data-aos="fade-up">
           <h1 className="text-5xl md:text-6xl font-black mb-4 text-gray-900">
             Contáctanos
@@ -21,7 +19,6 @@ export default function Contacto() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Columna izquierda: Info + Botones */}
           <div data-aos="fade-right" data-aos-delay="100">
             <div className="bg-white rounded-3xl shadow-lg p-8 mb-8">
               <h2 className="text-3xl font-bold mb-6 text-wayna-green">Ponte en contacto</h2>
@@ -78,7 +75,6 @@ export default function Contacto() {
               </div>
             </div>
 
-            {/* Redes sociales */}
             <div className="flex gap-6 justify-center md:justify-start">
               <a
                 href="https://instagram.com/wayna_en_linea/"
@@ -99,7 +95,6 @@ export default function Contacto() {
             </div>
           </div>
 
-          {/* Columna derecha: Sobre Wayna + Mapa */}
           <div data-aos="fade-left" data-aos-delay="200">
             <div className="bg-white rounded-3xl shadow-lg p-8 mb-8">
               <h2 className="text-3xl font-bold mb-6 text-wayna-green">Sobre Wayna</h2>
@@ -109,7 +104,7 @@ export default function Contacto() {
                   Wayna nació de una idea familiar: ofrecer soluciones de empaque sostenibles, bonitas y prácticas para pequeños y medianos negocios, con la misma calidad que las grandes empresas.
                 </p>
                 <p>
-                  Somos madre e hijo trabajando juntos. Yo me encargo de la parte digital y creativa, mientras mi mamá pone toda la experiencia y el corazón en la producción.
+                  Somos una familia trabajando juntos. Este emprendimiento es el sueño de varios años que finalmente hicimos realidad, combinando nuestras habilidades en diseño, producción y atención al cliente.
                 </p>
                 <p>
                   Actualmente operamos desde casa en Quito, por lo que los retiros son solo con cita previa (adaptamos horarios según disponibilidad). Estamos en la búsqueda activa de un local físico para poder atenderlos aún mejor.
@@ -120,15 +115,13 @@ export default function Contacto() {
               </div>
             </div>
 
-            {/* Mapa */}
             <div className="bg-white rounded-3xl shadow-lg p-4 overflow-hidden">
               <h3 className="text-xl font-bold mb-4 text-center text-wayna-green">
                 Ubicación aproximada (solo retiro con cita)
               </h3>
               <div className="aspect-video rounded-xl overflow-hidden">
-                {/* Reemplaza con tu iframe real de Google Maps */}
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8123456789!2d-78.497123!3d-0.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMDcnMjYuMCJTIDc4wrAyOSc0OS4yIlc!5e0!3m2!1ses-419!2sec!4v1699999999999"
+                  src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d593.0899800936884!2d-78.44806295149944!3d-0.01184056654970949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAv.%2013%20de%20Junio%20S2-93%20y%20Segundo%20Silva%2C%20Quito%2C%20Ecuador!5e0!3m2!1sen!2sec!4v1767498268636!5m2!1sen!2sec"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -145,7 +138,6 @@ export default function Contacto() {
           </div>
         </div>
 
-        {/* CTA final */}
         <div className="text-center mt-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             ¿Listo para tu próximo empaque?

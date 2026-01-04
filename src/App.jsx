@@ -5,6 +5,7 @@ import AboutSection from './components/AboutSection'
 import Services from './components/Services'
 import Footer from './components/Footer'
 import Shop from './components/shop/Shop'
+import Contacto from './pages/Contacto'
 import WhatsappButton from './components/WhatsappButton'
 
 function Home() {
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tienda" element={<Shop />} />
+          <Route path="/contacto" element={<Contacto />} />
         </Routes>
         
         <Footer />
