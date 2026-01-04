@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart, Menu, X } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
@@ -10,6 +11,7 @@ export default function Navbar() {
   const location = useLocation()
   const scrollYRef = useRef(0)
 
+  // Congelar / descongelar scroll sin destello
   useEffect(() => {
     if (mobileMenuOpen) {
       scrollYRef.current = window.scrollY
@@ -18,15 +20,19 @@ export default function Navbar() {
       document.body.style.width = '100%'
       document.body.style.overscrollBehavior = 'none'
     } else {
+      // Restauración sin parpadeo
       const currentScroll = scrollYRef.current
 
+      // 1. Scroll instantáneo mientras body está fijo (invisible para el usuario)
       window.scrollTo({ top: currentScroll, behavior: 'instant' })
 
+      // 2. Quitamos fixed inmediatamente después
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
       document.body.style.overscrollBehavior = ''
 
+      // 3. Forzamos re-render suave (evita destello en algunos navegadores)
       requestAnimationFrame(() => {
         window.scrollTo({ top: currentScroll, behavior: 'instant' })
       })
@@ -40,6 +46,7 @@ export default function Navbar() {
     }
   }, [mobileMenuOpen])
 
+  // Detectar scroll para navbar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -51,8 +58,8 @@ export default function Navbar() {
   const headerClasses = `
     fixed top-0 left-0 right-0 z-50 transition-all duration-500
     ${scrolled 
-      ? 'bg-white/40 backdrop-blur-xl shadow-xl border-b border-gray-100' 
-      : 'bg-white/80 shadow-md'
+      ? 'bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-100' 
+      : 'bg-white/90 shadow-md'
     }
   `
 
@@ -69,6 +76,7 @@ export default function Navbar() {
 
   const handleMenuToggle = () => {
     if (mobileMenuOpen) {
+      // Cerrar: activar animación de salida
       setIsAnimating(true)
       setShowMenu(false)
       setTimeout(() => {
@@ -76,8 +84,10 @@ export default function Navbar() {
         setIsAnimating(false)
       }, 300)
     } else {
+      // Abrir: montar el componente primero, luego animar
       setMobileMenuOpen(true)
       setIsAnimating(false)
+      // Pequeño delay para que el DOM se monte antes de animar
       setTimeout(() => {
         setShowMenu(true)
       }, 10)
@@ -136,6 +146,7 @@ export default function Navbar() {
         </div>
       </header>
 
+      {/* Menú móvil con animaciones suaves */}
       {mobileMenuOpen && (
         <div 
           className={`fixed inset-0 z-50 bg-black/70 backdrop-blur-sm transition-opacity duration-300
@@ -150,8 +161,15 @@ export default function Navbar() {
             `}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="pt-8 pb-6 px-8 border-b">
+            <div className="pt-8 pb-6 px-8 border-b flex justify-between items-center">
               <span className="text-3xl font-black text-wayna-green">WAYNA</span>
+              <button 
+                onClick={closeMobileMenu} 
+                className="p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:rotate-90"
+                aria-label="Cerrar menú"
+              >
+                <X size={28} className="text-gray-700" />
+              </button>
             </div>
 
             <nav className="flex flex-col py-10 px-8 gap-8 text-xl font-medium">
