@@ -13,7 +13,7 @@ export default function AboutSection() {
           </p>
           <p className="text-gray-600 mb-10 leading-relaxed">
             Producimos al por mayor para que incluso en compras mínimas nuestros clientes se beneficien del costo real 
-            de producción, y desarrollamos soluciones personalizadas que se adaptan al 100% a la identidad, necesidad y 
+            de producción, y desarrollamos soluciones personalizadas que se adaptan 100% a la identidad, necesidad y 
             visión de cada marca.
           </p>
 
