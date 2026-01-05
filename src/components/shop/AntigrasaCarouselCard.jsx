@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
+import { Info } from 'lucide-react'
+import DeliveryModal from './DeliveryModal'
 
 const ORANGE_COLOR = "#F58220"
 
 export default function AntigrasaCarouselCard({ products, onCotizar }) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [deliveryModalOpen, setDeliveryModalOpen] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,44 +20,61 @@ export default function AntigrasaCarouselCard({ products, onCotizar }) {
   const currentImage = products[currentIndex].image
 
   return (
-    <div
-      data-aos="fade-up"
-      className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
-    >
-      <div className="relative h-64 overflow-hidden bg-gray-50">
-        <img
-          src={currentImage}
-          alt={`${product.name} Modelo ${currentIndex + 1}`}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-        />
-      </div>
-
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-1 text-gray-900">{product.name}</h3>
-        
-        <p className="text-lg font-black mb-4" style={{ color: ORANGE_COLOR }}>
-          {product.dimensions}
-        </p>
-
-        <p className="text-gray-600 text-sm mb-6 line-clamp-3 leading-relaxed">
-          {product.desc}
-        </p>
-
-        <div className="flex items-center justify-center mb-6">
-          <span className="text-3xl font-black text-wayna-green">
-            ${product.price.toFixed(2)} / {product.units} u
-          </span>
+    <>
+      <div
+        data-aos="fade-up"
+        className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+      >
+        <div className="relative h-64 overflow-hidden bg-gray-50">
+          <img
+            src={currentImage}
+            alt={`${product.name} Modelo ${currentIndex + 1}`}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
         </div>
 
-        <div className="flex items-center justify-center">
-          <button
-            onClick={() => onCotizar(product)}
-            className="bg-wayna-green text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-[#F58220] transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          >
-            Cotizar
-          </button>
+        <div className="p-6">
+          <h3 className="text-xl font-bold mb-1 text-gray-900">{product.name}</h3>
+          
+          <p className="text-lg font-black mb-4" style={{ color: ORANGE_COLOR }}>
+            {product.dimensions}
+          </p>
+
+          <p className="text-gray-600 text-sm mb-6 line-clamp-3 leading-relaxed">
+            {product.desc}
+          </p>
+
+          <div className="flex items-center justify-center mb-6">
+            <span className="text-3xl font-black text-wayna-green">
+              ${product.price.toFixed(2)} / {product.units} u
+            </span>
+          </div>
+
+          <div className="flex items-center justify-center mb-4">
+            <button
+              onClick={() => setDeliveryModalOpen(true)}
+              className="text-sm text-gray-600 underline hover:text-wayna-green transition-colors flex items-center gap-1"
+            >
+              <Info size={16} />
+              + Costo de Entrega (Ver)
+            </button>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <button
+              onClick={() => onCotizar(product)}
+              className="bg-wayna-green text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-[#F58220] transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Cotizar
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+
+      <DeliveryModal 
+        isOpen={deliveryModalOpen} 
+        onClose={() => setDeliveryModalOpen(false)} 
+      />
+    </>
   )
 }
