@@ -161,7 +161,8 @@ export default function Shop() {
                     !p.name.includes('Cupcakes') &&
                     !p.name.includes('Botella de Vino') &&
                     !p.name.includes('Gigante Big Box') &&
-                    !p.name.includes('Box 6 con Ventana')
+                    !p.name.includes('Box 6 con Ventana') && 
+                    !p.name.includes('Bombones')
                   )
                   .map(product => (
                     <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
