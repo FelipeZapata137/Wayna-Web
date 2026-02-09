@@ -82,7 +82,7 @@ export const products = [
     image: "/assets/conoGrande.png",
   },
   {
-    id: 5,
+    id: 28,
     name: "Cono Gigante",
     category: "porta-productos",
     desc: "Cono gigante para eventos y grandes porciones.",
@@ -165,7 +165,16 @@ export const products = [
     toggleGroup: "botella-vino",
     variant: "12u"
   },
-
+  {
+    id: 99,
+    name: "Porta Snacks",
+    category: "porta-productos",
+    desc: "Contenedor ideal para transportar snacks y alimentos de manera segura.",
+    dimensions: "8.5 x 8.5 x 38 cm",
+    price: 3.50,
+    units: 25,
+    image: "/assets/porta-snacks.png",
+  },
   // Categoria: Recipientes Contenedores
   {
     id: 12,
@@ -239,6 +248,16 @@ export const products = [
     units: 50,
     image: "/assets/Canoa04.png",
   },
+    {
+    id: 29,
+    name: "Canoa 5",
+    category: "canoas-bandejas",
+    desc: "Caja grande y resistente para envíos pesados.",
+    dimensions: "11 x 6.5 x 7 cm",
+    price: 3.75,
+    units: 25,
+    image: "/assets/canoa-5.png",
+  },
   {
     id: 20,
     name: "Bandeja Bocaditos 1",
@@ -281,6 +300,16 @@ export const products = [
   },
   
   // Categoria: Delivery Box
+    {
+    id: 5,
+    name: "Mini Caja Cuadrada",
+    category: "delivery-box",
+    desc: "Caja mini y resistente para tu producto.",
+    dimensions: "10 x 9.5 x 7 cm",
+    price: 6.00,
+    units: 50,
+    image: "/assets/mini-box-cuadrada.png",
+  },
   {
     id: 6,
     name: "Cajita Cuadrada",
@@ -452,6 +481,30 @@ export const products = [
     price: 8.00,
     units: 25,
     image: "/assets/portaCupcakes.png",
+  },
+  {
+    id: 52,
+    name: "Caja para Bombones",
+    category: "dulces-bocaditos",
+    desc: "Caja ideal para transportar bombones de manera segura.",
+    dimensions: "23 x 4.5 x 4.5 cm",
+    price: 5.00,
+    units: 12,
+    image: "/assets/caja-bombones.png",
+    toggleGroup: "caja-bombones",
+    variant: "12u"
+  },
+  {
+    id: 56,
+    name: "Caja para Bombones",
+    category: "dulces-bocaditos",
+    desc: "Caja ideal para transportar bombones de manera segura.",
+    dimensions: "23 x 4.5 x 4.5 cm",
+    price: 8.00,
+    units: 25,
+    image: "/assets/caja-bombones.png",
+    toggleGroup: "caja-bombones",
+    variant: "25u"
   },
   // Categoria: Cajas con Ventana
   {
