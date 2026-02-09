@@ -192,9 +192,9 @@ export default function Shop() {
             ) : activeCategory === 'delivery-box' ? (
               <>
                 {filteredProducts
-                  .filter(p => p.name === 'Cajita Cuadrada' || p.name === 'Cajita Rectangular' || p.name === 'Lonchera' || p.name === 'Big Box' || p.name === 'Mega Big Box' || p.name === 'Caja Combos')
+                  .filter(p => p.name === 'Mini Caja Cuadrada' || p.name === 'Cajita Cuadrada' || p.name === 'Cajita Rectangular' || p.name === 'Lonchera' || p.name === 'Big Box' || p.name === 'Mega Big Box' || p.name === 'Caja Combos')
                   .sort((a, b) => {
-                    const order = ['Cajita Cuadrada', 'Cajita Rectangular', 'Lonchera', 'Big Box', 'Mega Big Box', 'Caja Combos']
+                    const order = ['Mini Caja Cuadrada','Cajita Cuadrada', 'Cajita Rectangular', 'Lonchera', 'Big Box', 'Mega Big Box', 'Caja Combos']
                     return order.indexOf(a.name) - order.indexOf(b.name)
                   })
                   .map(product => (
