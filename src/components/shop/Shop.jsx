@@ -68,7 +68,7 @@ export default function Shop() {
   const botellaVinoProducts = products.filter(p => p.toggleGroup === 'botella-vino')
   const giganteBigBoxProducts = products.filter(p => p.toggleGroup === 'gigante-bigbox')
   const box6VentanaProducts = products.filter(p => p.toggleGroup === 'box6-ventana')
-
+  const cajaBombonesProducts = products.filter(p => p.toggleGroup === 'caja-bombones')
   return (
     <section className="pt-24 pb-32 px-6 bg-gray-50 min-h-screen relative">
       <div className="max-w-7xl mx-auto">
@@ -147,6 +147,9 @@ export default function Shop() {
                 )}
                 {box6VentanaProducts.length === 2 && (
                   <PackageToggleCard groupProducts={box6VentanaProducts} onCotizar={handleCotizar} />
+                )}
+                {cajaBombonesProducts.length === 2 && (
+                  <PackageToggleCard groupProducts={cajaBombonesProducts} onCotizar={handleCotizar} />
                 )}
 
                 {filteredProducts
@@ -247,8 +250,11 @@ export default function Shop() {
                 {seisCupcakesProducts.length === 2 && (
                   <CupcakesToggleCard groupProducts={seisCupcakesProducts} onCotizar={handleCotizar} />
                 )}
+                {cajaBombonesProducts.length === 2 && (
+                  <PackageToggleCard groupProducts={cajaBombonesProducts} onCotizar={handleCotizar} />
+                )}
                 {filteredProducts
-                  .filter(p => !p.name.includes('Cupcakes') && p.name !== 'Caja de 1 Cupcake')
+                  .filter(p => !p.name.includes('Cupcakes') && p.name !== 'Caja de 1 Cupcake' && !p.name.includes('Bombones'))
                   .map(product => (
                     <ProductCard key={product.id} product={product} onCotizar={handleCotizar} />
                   ))}
