@@ -68,6 +68,7 @@ export default function Shop() {
   const botellaVinoProducts = products.filter(p => p.toggleGroup === 'botella-vino')
   const giganteBigBoxProducts = products.filter(p => p.toggleGroup === 'gigante-bigbox')
   const box6VentanaProducts = products.filter(p => p.toggleGroup === 'box6-ventana')
+  const box7VentanaProducts = products.filter(p => p.toggleGroup === 'box-ventana-7')
   const cajaBombonesProducts = products.filter(p => p.toggleGroup === 'caja-bombones')
   return (
     <section className="pt-24 pb-32 px-6 bg-gray-50 min-h-screen relative">
@@ -148,6 +149,9 @@ export default function Shop() {
                 {box6VentanaProducts.length === 2 && (
                   <PackageToggleCard groupProducts={box6VentanaProducts} onCotizar={handleCotizar} />
                 )}
+                {box7VentanaProducts.length === 2 && (
+                  <PackageToggleCard groupProducts={box7VentanaProducts} onCotizar={handleCotizar} />
+                )}
                 {cajaBombonesProducts.length === 2 && (
                   <PackageToggleCard groupProducts={cajaBombonesProducts} onCotizar={handleCotizar} />
                 )}
@@ -161,7 +165,8 @@ export default function Shop() {
                     !p.name.includes('Cupcakes') &&
                     !p.name.includes('Botella de Vino') &&
                     !p.name.includes('Gigante Big Box') &&
-                    !p.name.includes('Box 6 con Ventana') && 
+                    !p.name.includes('Box 6 con Ventana') &&
+                    !p.name.includes('Box 7 con Ventana') && 
                     !p.name.includes('Bombones')
                   )
                   .map(product => (
@@ -235,6 +240,9 @@ export default function Shop() {
 
                 {box6VentanaProducts.length === 2 && (
                   <PackageToggleCard groupProducts={box6VentanaProducts} onCotizar={handleCotizar} />
+                )}
+                {box7VentanaProducts.length === 2 && (
+                  <PackageToggleCard groupProducts={box7VentanaProducts} onCotizar={handleCotizar} />
                 )}
               </>
             ) : activeCategory === 'dulces-bocaditos' ? (

@@ -591,6 +591,30 @@ export const products = [
     toggleGroup: "box6-ventana",
     variant: "12u"
   },
+  {
+    id: 307,
+    name: "Box 7 con Ventana (12 u)",
+    category: "cajas-ventana",
+    desc: "Caja mediana con ventana para productos variados. Paquete de 12 unidades.",
+    dimensions: "23 x 4.5 x 4.5 cm",
+    price: 5.00,
+    units: 12,
+    image: "/assets/box-ventana-7.png",
+    toggleGroup: "box-ventana-7",
+    variant: "12u"
+  },
+  {
+    id: 308,
+    name: "Box 7 con Ventana (25 u)",
+    category: "cajas-ventana",
+    desc: "Caja mediana con ventana para productos variados. Paquete de 25 unidades.",
+    dimensions: "23 x 4.5 x 4.5 cm",
+    price: 8.00,
+    units: 25,
+    image: "/assets/box-ventana-7.png",
+    toggleGroup: "box-ventana-7",
+    variant: "25u"
+  },
 
   // Categoria: Para Pizza
   {
