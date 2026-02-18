@@ -453,7 +453,7 @@ export const products = [
     category: "dulces-bocaditos",
     desc: "Caja ideal para transportar seis cupcakes con ventana para mejor presentación.",
     dimensions: "27 x 18 x 8 cm",
-    price: 14.00,
+    price: 15.00,
     units: 25,
     image: "/assets/seisCupcakes-con-ventana.png",
     toggleGroup: "seis-cupcakes",
